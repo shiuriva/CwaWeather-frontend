@@ -15,14 +15,11 @@
 
     <style>
         :root {
-            --ac-green: #7DE1A9;
-            --ac-bg-pattern: #8FD8AF;
-            --ac-cream: #FFFEF2;
-            --ac-yellow: #F9F195;
-            --ac-brown: #796452;
-            --ac-blue: #4FB5D9;
-            --ac-dark: #58504A;
-            --ac-card-border: #E6E0C8;
+            --xmas-red: #C0392B;
+    --xmas-green: #1E5631;
+    --xmas-white: #FFFDF8;
+    --xmas-orange: #F4A259;
+    --xmas-dark: #4A3F35;
         }
 
         * {
@@ -34,15 +31,15 @@
 
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
-            background-color: var(--ac-green);
-            /* 更細緻的斜紋背景 */
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.2) 20px, rgba(255, 255, 255, 0.2) 40px);
-            min-height: 100vh;
-            color: var(--ac-dark);
-            /* 防止 iOS 左右滑動 */
-            overflow-x: hidden;
-            padding-bottom: 20px;
+    background-color: var(--xmas-green);
+    background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+                      radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    min-height: 100vh;
+    color: var(--xmas-dark);
+    overflow-x: hidden;
+    padding-bottom: 20px;
         }
 
         /* 頂部狀態列 */
@@ -87,14 +84,14 @@
 
         /* === 核心：今日焦點卡片 === */
         .hero-card {
-            background: var(--ac-cream);
-            border-radius: 35px;
-            padding: 30px 25px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border: 4px solid white;
-            margin-bottom: 25px;
-            position: relative;
+            background: var(--xmas-white);
+    border-radius: 35px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--xmas-red);   /* ← 原本是白色 */
+    margin-bottom: 25px;
+    position: relative;
         }
 
         /* 像動森的對話氣泡 */
@@ -103,12 +100,12 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--ac-blue);
-            color: white;
+            background: var(--xmas-orange);
+    color: white;
+    border: 3px solid var(--xmas-red);
             padding: 5px 20px;
             border-radius: 20px;
             font-weight: bold;
-            border: 3px solid white;
             box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
         }
 
@@ -123,7 +120,8 @@
         .hero-icon {
             font-size: 5rem;
             filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.1));
-            animation: bounce 3s infinite;
+    animation: bounce 3s infinite;
+    color: var(--xmas-red); /* 如果想用 SVG 可改成純色聖誕剪影 */
         }
 
         @keyframes bounce {
@@ -166,7 +164,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid var(--xmas-red);
             padding: 10px;
             border-radius: 20px;
         }
@@ -210,23 +209,24 @@
 
         .mini-card {
             min-width: 140px;
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--xmas-white);
+    border: 3px solid var(--xmas-red);
             border-radius: 25px;
             padding: 20px 15px;
             text-align: center;
-            border: 3px solid white;
+            border: 3px solid var(--xmas-red);
             flex-shrink: 0;
             /* 防止被擠壓 */
         }
 
         .mini-time {
-            background: var(--ac-green);
+            background: var(--xmas-red);
             color: white;
             padding: 3px 10px;
             border-radius: 10px;
             font-size: 0.8rem;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 13px;
             font-weight: bold;
         }
 
@@ -248,7 +248,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--ac-green);
+            background: var(--xmas-green);
+            background-image: radial-gradient(white 1px, transparent 1px),
+                      radial-gradient(white 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -264,7 +268,7 @@
         <p style="color: white; font-weight: bold; margin-top: 20px;">正在觀測雲的流動...</p>
     </div>
     <div class="status-bar">
-        <div class="location-pill">📍 新北</div>
+        <div class="location-pill">🎄 新北</div>
         <div id="updateTime" class="update-pill">更新中...</div>
     </div>
 
